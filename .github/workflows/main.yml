@@ -1,24 +1,37 @@
-name : Spring Boot CI 
+name: Test Workflow
 
-on : 
-  push : 
-    branches : ["master"]
-  pull_request : 
-    branches : ["master"]
+on: [push]
 
-jobs :
-  build :
-    runs-on : windows-latest 
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: say Hello
+        run: echo "Hello from GitHub Actions!"
+        
+        
+        # name : Spring Boot CI 
 
-    steps :
-      - name : Checkout source 
-        uses : actions/checkout@v3
+# on : 
+#   push : 
+#     branches : ["master"]
+#   pull_request : 
+#     branches : ["master"]
 
-      - name : Set up JDK 17
-        uses : actions/setup-java@v3
-        with :
-          java-version : '17'
-          distribution : 'temurin'
+# jobs :
+#   build :
+#     runs-on : windows-latest 
+
+#     steps :
+#       - name : Checkout source 
+#         uses : actions/checkout@v3
+
+#       - name : Set up JDK 17
+#         uses : actions/setup-java@v3
+#         with :
+#           java-version : '17'
+#           distribution : 'temurin'
   
-      - name : Build with Maven 
-        run : mvn clean install -DskipTests
+#       - name : Build with Maven 
+#         run : mvn clean install -DskipTests
+        
